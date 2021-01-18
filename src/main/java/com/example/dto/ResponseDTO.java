@@ -2,11 +2,11 @@ package com.example.dto;
 
 public class ResponseDTO {
     private String message;
-    private Object date;
+    private Object data;
 
-    public ResponseDTO(String message, Object date) {
+    public ResponseDTO(String message, Object data) {
         this.message = message;
-        this.date = date;
+        this.data = data;
     }
 
     public String getMessage() {
@@ -17,11 +17,11 @@ public class ResponseDTO {
         this.message = message;
     }
 
-    public Object getDate() {
-        return date;
+    public Object getData() {
+        return data;
     }
 
-    public void setDate(Object date) {
-        this.date = date;
+    public void setData(Object data) {
+        this.data = data;
     }    
 }

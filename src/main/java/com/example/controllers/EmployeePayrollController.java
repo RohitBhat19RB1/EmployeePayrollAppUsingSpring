@@ -60,7 +60,7 @@ public class EmployeePayrollController {
 	
 	/*
 	curl -X PUT -H "Content-Type:application/json" -d '{"name":"Lisa","salary":2000}'
-	"http://localhost:8080/employeepayrollservice/update" -w"\n"
+	"http://localhost:8080/employeepayrollservice/update/1" -w"\n"
 	 */
 	@PutMapping("/update/{empId}")
 	public ResponseEntity<ResponseDTO> updateEmployeePayrollData(
