@@ -7,6 +7,8 @@ import com.example.dto.EmployeePayrollDTO;
 import com.example.model.EmployeePayrollData;
 
 import org.springframework.stereotype.Service;
+import com.example.exceptions.EmployeePayrollException;
+ 
 
 @Service  
 public class EmployeePayrollService implements IEmployeePayrollService {
@@ -20,7 +22,11 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 
 	    @Override
 	    public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-	        return employeePayrollList.get(empId-1);
+	    	 return employeePayrollList.stream()
+	                 .filter(empData -> empData.getEmployeeId() == empId)
+	                 .findFirst()
+	                 .orElseThrow(() -> new EmployeePayrollException("Employee Not Found"));
+	    
 	    }
 
 	    @Override
