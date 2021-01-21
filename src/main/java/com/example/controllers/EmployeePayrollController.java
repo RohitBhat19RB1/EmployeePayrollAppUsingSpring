@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.example.dto.EmployeePayrollDTO;
 import com.example.dto.ResponseDTO;
 import com.example.model.EmployeePayrollData;
@@ -51,7 +53,7 @@ public class EmployeePayrollController {
 	 */
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> addEmployeePayrollData(
-					@RequestBody EmployeePayrollDTO empPayrollDTO) {
+					@Valid@RequestBody EmployeePayrollDTO empPayrollDTO) {
 		EmployeePayrollData empData = null;
 		empData = employeePayrollService.createEmployeePayrollData(empPayrollDTO);
 		ResponseDTO respDTO = new ResponseDTO("Created Employee Payroll Data Successfully", empData);
@@ -65,7 +67,7 @@ public class EmployeePayrollController {
 	@PutMapping("/update/{empId}")
 	public ResponseEntity<ResponseDTO> updateEmployeePayrollData(
 					@PathVariable("empId") int empId,
-					@RequestBody EmployeePayrollDTO empPayrollDTO) {
+					@Valid@RequestBody EmployeePayrollDTO empPayrollDTO) {
 		EmployeePayrollData empData = null;
 		empData = employeePayrollService.updateEmployeePayrollData(1, empPayrollDTO);
 		ResponseDTO respDTO = new ResponseDTO("Updated Employee Payroll Data Successfully", empData);
